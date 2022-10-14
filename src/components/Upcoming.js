@@ -8,7 +8,7 @@ function Interview({ interview, usersObject }) {
           <span>
             {interview.date} {interview.startTime} - {interview.endTime}
           </span>
-          <span className="float-right">Edit</span>
+          <button className="float-right" >Edit</button>
         </li>
         <li className="list-group-item px-0 py-0">
           <table className="table table-bordered mb-0">
@@ -23,18 +23,7 @@ function Interview({ interview, usersObject }) {
                 <td>
                   {usersObject[username] ? usersObject[username].email : "NULL"}
                 </td>
-                <td>
-                  <a
-                    href={
-                      usersObject[username]
-                        ? usersObject[username].resume
-                        : "NULL"
-                    }
-                    target="_blank"
-                  >
-                    Resume Link
-                  </a>
-                </td>
+                
               </tr>
             ))}
           </table>

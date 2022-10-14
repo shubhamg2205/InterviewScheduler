@@ -7,7 +7,9 @@ import "./App.css";
 import { interviews, users } from "./server/data";
 
 class App extends React.Component {
-  state = {
+  constructor(){
+    super();
+    this.state= {
     interviews: interviews,
     usersArray: users,
     usersObject: {},
@@ -15,7 +17,7 @@ class App extends React.Component {
     interviewsObject: {},
     current: 0,
   };
-
+  }
   addNewInterview = (interview) => {
     interview.id = this.state.lastId;
     let interviews = [...this.state.interviews, interview];
