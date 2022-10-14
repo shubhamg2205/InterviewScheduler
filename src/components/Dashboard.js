@@ -5,16 +5,18 @@ import NewInterview from "./NewInterview";
 class Dashboard extends Component {
   render() {
     return (
-      <div className="px-4 py-4">
-        <button
-          className="btn btn-info btn-block"
-          onClick={this.props.onCurrentChange}
-        >
-          {this.props.current == 0
-            ? "Schedule new Interview"
-            : "Back to Portal"}
-        </button>
-        <br />
+      <div className="px-4 py-4" style={
+        {
+          width:"75vw",
+          height:"auto",
+          // display:"flex",
+          // flexWrap:"row",
+          // justifyContent:"space-around",
+          backgroundColor:"orange"
+        }
+      }>
+        
+        
         {this.props.current == 0 ? (
           <Upcoming
             interviews={this.props.interviews}
@@ -27,7 +29,15 @@ class Dashboard extends Component {
             interviewsObject={this.props.interviewsObject}
             addNewInterview={this.props.addNewInterview}
           />
-        )}
+        )}<br />
+        <button
+          className="btn btn-info btn-block"
+          onClick={this.props.onCurrentChange}
+        >
+          {this.props.current == 0
+            ? "Schedule new Interview"
+            : "Back to Portal"}
+        </button>
       </div>
     );
   }

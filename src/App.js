@@ -19,9 +19,7 @@ class App extends React.Component {
     current: 0,
   };
   }
-  componentDidUpdate(){
-    
-  }
+  
   addNewInterview = (interview) => {
     interview.id = this.state.lastId;
     let interviews = [...this.state.interviews, interview];
@@ -80,7 +78,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Topbar />
+      <Topbar />
         <div className="box">
           <div className="content-box">
             <Dashboard
@@ -95,6 +93,7 @@ class App extends React.Component {
             />
           </div>
         </div>
+       
       </div>
     );
   }

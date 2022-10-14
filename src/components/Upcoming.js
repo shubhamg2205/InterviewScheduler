@@ -4,7 +4,19 @@ import Interview from "./Interview";
 export class Upcoming extends Component {
   render() {
     return (
-      <div>
+      <div style={{
+        backgroundColor:"cyan",
+        width:"70vw",
+        height:"auto",
+        padding:"1vw",
+        
+        display:"flex",
+        flexDirection:"row",
+        flexWrap:"wrap",
+        justifyContent:"space-between"
+      }
+        
+      }>
         {this.props.interviews.map((interview, index) => (
           <Interview
             key={index}

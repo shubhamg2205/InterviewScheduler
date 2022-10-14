@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 function Interview(props) {
   return (
-    <div className="py-2">
+    <div className="py-2" style={
+      {
+        width:"30vw",
+        
+      }
+    }>
       <ul className="list-group">
         <li className="list-group-item active">
           <span>
