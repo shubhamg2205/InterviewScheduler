@@ -19,6 +19,7 @@ class Dashboard extends Component {
           <Upcoming
             interviews={this.props.interviews}
             usersObject={this.props.usersObject}
+            editInterview={this.props.editInterview}
           />
         ) : (
           <NewInterview

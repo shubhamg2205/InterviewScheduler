@@ -5,6 +5,7 @@ import Topbar from "./components/Topbar";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
 import { interviews, users } from "./server/data";
+import NewInterview from "./components/NewInterview";
 
 class App extends React.Component {
   constructor(){
@@ -17,6 +18,9 @@ class App extends React.Component {
     interviewsObject: {},
     current: 0,
   };
+  }
+  componentDidUpdate(){
+    
   }
   addNewInterview = (interview) => {
     interview.id = this.state.lastId;
@@ -38,10 +42,18 @@ class App extends React.Component {
   };
 
   editInterview = (interview) => {
-    let interviews = this.state.interviews.map((int) =>
-      int.id == interview.id ? interview : int
-    );
-    this.setState({ interviews });
+    // let interviews = this.state.interviews.map((int) =>
+    //   int.id == interview.id ? interview : int
+    // );
+    // {this.state.current == 0
+    //   ? "Schedule new Interview"
+    //   : "Back to Portal"}
+    this.state.current=1
+    
+    this.setState({ 
+      interviews:interviews
+     });
+    
   };
 
   componentDidMount() {

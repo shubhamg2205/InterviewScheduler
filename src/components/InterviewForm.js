@@ -27,7 +27,7 @@ function SelectUser({
 
 class InterviewForm extends Component {
   state = {
-    date: this.props.date ? this.props.date : "2020-09-03",
+    date: this.props.date ? this.props.date : "2022-03-09",
     startTime: this.props.startTime ? this.props.startTime : "03:00",
     endTime: this.props.endTime ? this.props.endTime : "05:00",
     numberOfParticipants: this.props.numberOfParticipants
