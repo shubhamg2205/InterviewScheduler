@@ -10,9 +10,11 @@ class Dashboard extends Component {
           width:"75vw",
           height:"auto",
           // display:"flex",
-          // flexWrap:"row",
+          // flexWrap:"wrap",
+          // flexDirection:"column",
           // justifyContent:"space-around",
-          backgroundColor:"orange"
+          
+          backgroundColor:"white"
         }
       }>
         
@@ -32,7 +34,14 @@ class Dashboard extends Component {
         )}<br />
         <button
           className="btn btn-info btn-block"
+          
           onClick={this.props.onCurrentChange}
+          style={
+            {
+              width:"auto",
+              margin:"0 auto",
+            }
+          }
         >
           {this.props.current == 0
             ? "Schedule new Interview"
