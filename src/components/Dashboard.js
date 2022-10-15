@@ -25,6 +25,7 @@ class Dashboard extends Component {
           <NewInterview
             usersArray={this.props.usersArray}
             interviewsObject={this.props.interviewsObject}
+            onSubmit={this.props.onSubmit}
             addNewInterview={this.props.addNewInterview}
           />
         )}<br />

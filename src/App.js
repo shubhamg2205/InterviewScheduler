@@ -20,6 +20,7 @@ class App extends React.Component {
       interviewsObject: {},
       current: 0,
     };
+    db:firebase.firestore();
     this.editInterview=this.editInterview.bind(this);
     this.deleteInterview=this.deleteInterview.bind(this);
   }
@@ -48,7 +49,8 @@ class App extends React.Component {
         return {
           ...state,
           ["usersObject"]: userObj2,
-           ["usersArray"]: users
+           ["usersArray"]: users,
+           
         };
       });
       });
@@ -73,31 +75,31 @@ class App extends React.Component {
             ...state,
             ["interviewsObject"]: interviewsObject2,
             ["interviews"]: interviews,
+            ['lastId']:interviews.length
           };
         });
       });
-
-    
-     
-    
-
-    
-    
-
-    
-  }
+    }
 
   addNewInterview = (interview) => {
+    
     interview.id = this.state.lastId;
     let interviews = [...this.state.interviews, interview];
     let interviewsObject = this.state.interviewsObject;
     if (!interviewsObject[interview.date])
       interviewsObject[interview.date] = [];
-    interviewsObject[interview.date].push(interview);
+      interviewsObject[interview.date].push(interview);
+   
     interviews.sort((int1, int2) => {
       if (int1.date < int2.date) return -1;
       if (int1.date == int2.date) return int1.startTime - int2.startTime;
       return 1;
+    });
+    firebase.
+    firestore().
+    collection('Interviews').
+    add(interview).then((docRef)=>{
+       console.log("hellow");
     });
     this.setState({
       interviews: interviews,
@@ -107,12 +109,21 @@ class App extends React.Component {
   };
 
   editInterview = (interview) => {
+    // const idx=this.state.interviews.indexOf(interview);
+    // console.log(idx);
+    // const docRef=firebase.firestore().
+    // collection('Interviews').
+    // doc(this.state.interviews[idx].id);
+
+    // console.log(docRef);
+    // docRef.delete().then(()=>{
+    //   console.log("deleted");
+    // });
     
-    this.state.current = 1;
      
     this.setState({
       
-
+      current :1
     });
   };
   deleteInterview = (interview) => {

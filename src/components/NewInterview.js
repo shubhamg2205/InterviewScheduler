@@ -8,7 +8,7 @@ class NewInterview extends Component {
   };
 
   render() {
-   // console.log(this.props.interviewsObject);
+    console.log(this.props.interviewsObject);
     return (
       <div>
         <InterviewForm
