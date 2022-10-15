@@ -110,12 +110,14 @@ class App extends React.Component {
 
   editInterview = (interview) => {
     // const idx=this.state.interviews.indexOf(interview);
-    // console.log(idx);
+    
+    // const id =this.state.interviews[idx].id;
+    
     // const docRef=firebase.firestore().
     // collection('Interviews').
-    // doc(this.state.interviews[idx].id);
-
+    // child('{id}').remove();
     // console.log(docRef);
+    
     // docRef.delete().then(()=>{
     //   console.log("deleted");
     // });
