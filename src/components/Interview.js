@@ -25,7 +25,9 @@ function Interview(props) {
             ()=>{props.editInterview(props.interview);
               
             }
-          } >Edit</button>
+          } ><img alt="delete" src="https://cdn-icons-png.flaticon.com/128/1828/1828911.png" width="25px">
+          </img>
+          </button>
           <button className="float-right" onClick={
             ()=>{props.deleteInterview(props.interview);
               
