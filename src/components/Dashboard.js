@@ -9,11 +9,6 @@ class Dashboard extends Component {
         {
           width:"75vw",
           height:"auto",
-          // display:"flex",
-          // flexWrap:"wrap",
-          // flexDirection:"column",
-          // justifyContent:"space-around",
-          
           backgroundColor:"white"
         }
       }>
@@ -25,7 +20,7 @@ class Dashboard extends Component {
             usersObject={this.props.usersObject}
             editInterview={this.props.editInterview}
             deleteInterview={this.props.deleteInterview}
-          />
+          />         
         ) : (
           <NewInterview
             usersArray={this.props.usersArray}
@@ -33,6 +28,7 @@ class Dashboard extends Component {
             addNewInterview={this.props.addNewInterview}
           />
         )}<br />
+       
         <button
           className="btn btn-info btn-block"
           

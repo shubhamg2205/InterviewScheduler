@@ -20,57 +20,71 @@ class App extends React.Component {
       interviewsObject: {},
       current: 0,
     };
+    this.editInterview=this.editInterview.bind(this);
+    this.deleteInterview=this.deleteInterview.bind(this);
   }
+
   async componentDidMount() {
+    let userObj2={};
+    let interviewsObject2 = {};
     let users = [],
       interviews = [];
-    const usersdb = firebase
+      firebase
       .firestore()
       .collection("Users")
       .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
+      .then(  (snapshot)=>  {
+        snapshot.forEach((doc)=> {
           users.push(doc.data());
+        //  console.log(doc.data());
         });
-        this.setState({ usersArray: users });
+        
+       users.forEach( (user)=> {
+      console.log(user);
+      userObj2[user.username]=user;
       });
-    //console.log(users);
-    
-    this.setState((state) => {
-      return {
-        ...state,
-        ["usersObject"]: { ...state.usersObject, ["users[0].name"]: users[0] },
-      };
-    });
-
-    firebase
+      //console.log(userObj2);
+      this.setState((state) => {
+        return {
+          ...state,
+          ["usersObject"]: userObj2,
+           ["usersArray"]: users
+        };
+      });
+      });
+      firebase
       .firestore()
       .collection("Interviews")
       .get()
       .then((snapshot) => {
-        snapshot.forEach((doc) => {
+        snapshot.forEach(async function(doc) {
           interviews.push(doc.data());
+        });
+        interviews.forEach((interview)=> {
+          if (!interviewsObject2[interview.date]) {
+            interviewsObject2[interview.date] = [];
+          }
+          interviewsObject2[interview.date].push(interview);
+          
+        });
+    
+        this.setState((state) => {
+          return {
+            ...state,
+            ["interviewsObject"]: interviewsObject2,
+            ["interviews"]: interviews,
+          };
         });
       });
 
-    let interviewsObject2 = {};
+    
+     
+    
 
-    interviews.forEach((interview) => {
-      if (!interviewsObject2[interview.date]) {
-        interviewsObject2[interview.date] = [];
-      }
-      interviewsObject2[interview.date].push(interview);
-      
-    });
+    
+    
 
-    this.setState((state) => {
-      return {
-        ...state,
-        ["interviewsObject"]: interviewsObject2,
-        ["interviews"]: interviews,
-      };
-    });
+    
   }
 
   addNewInterview = (interview) => {
@@ -93,10 +107,12 @@ class App extends React.Component {
   };
 
   editInterview = (interview) => {
+    
     this.state.current = 1;
-
+     
     this.setState({
-      interviews: this.interviews,
+      
+
     });
   };
   deleteInterview = (interview) => {
@@ -115,7 +131,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.usersObject);
+    //console.log(this.state.interviews)
     return (
       <div className="app">
         <Topbar />
@@ -132,9 +148,9 @@ class App extends React.Component {
               current={this.state.current}
               onCurrentChange={this.onCurrentChange}
             />
-            {this.state.usersObject.shubhamg2205 && (
-              <div>{JSON.stringify(this.state.usersObject)}</div>
-            )}
+            
+              
+            
           </div>
         </div>
       </div>

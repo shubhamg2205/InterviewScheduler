@@ -22,19 +22,12 @@ function Interview(props) {
           </span>
          
           <button className="float-right" onClick={
-            ()=>{props.editInterview(props.interview);
-              
-            }
-          } ><img alt="delete" src="https://cdn-icons-png.flaticon.com/128/1828/1828911.png" width="25px">
+            (event)=>{props.editInterview(props.interview);}
+          }>
+          <img alt="edit" src="https://cdn-icons-png.flaticon.com/128/1828/1828911.png" width="25px">
           </img>
           </button>
-          <button className="float-right" onClick={
-            ()=>{props.deleteInterview(props.interview);
-              
-            }
-          } ><img alt="delete" src="https://cdn-icons-png.flaticon.com/128/3405/3405244.png" width="30px">
-          </img>
-          </button>
+          
         </p>
         <p className="list-group-item px-0 py-0" style={{
           

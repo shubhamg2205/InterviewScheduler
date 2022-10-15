@@ -44,7 +44,7 @@ class InterviewForm extends Component {
   };
 
   onSubmit = (eve) => {
-    console.log("Yaha ayaa hu");
+   // console.log("Yaha ayaa hu");
     eve.preventDefault();
     let interview = {
       date: this.state.date,
@@ -58,7 +58,7 @@ class InterviewForm extends Component {
     let isError = false;
     for (let i = 0; i < this.state.numberOfParticipants; i++) {
       const user = this.state.participants[i];
-      console.log(user);
+      //console.log(user);
       if (!obj[user] && user) {
         obj[user] = 1;
         if (this.props.interviewsObject[interview.date]) {
@@ -104,7 +104,7 @@ class InterviewForm extends Component {
         i < this.state.participants.length ? this.state.participants[i] : ""
       );
     }
-    console.log(participants);
+    //console.log(participants);
     console.dir(eve);
     this.setState({
       participants: participants,
