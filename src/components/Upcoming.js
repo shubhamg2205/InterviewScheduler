@@ -23,6 +23,7 @@ export class Upcoming extends Component {
             interview={interview}
             usersObject={this.props.usersObject}
             editInterview={this.props.editInterview}
+            deleteInterview={this.props.deleteInterview}
           />
         ))}
       </div>

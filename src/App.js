@@ -40,12 +40,7 @@ class App extends React.Component {
   };
 
   editInterview = (interview) => {
-    // let interviews = this.state.interviews.map((int) =>
-    //   int.id == interview.id ? interview : int
-    // );
-    // {this.state.current == 0
-    //   ? "Schedule new Interview"
-    //   : "Back to Portal"}
+    
     this.state.current=1
     
     this.setState({ 
@@ -53,7 +48,15 @@ class App extends React.Component {
      });
     
   };
-
+  deleteInterview = (interview) => {
+    const {interviews}=this.state
+    const x=interviews.indexOf(interview)
+    interviews.splice(x,1)
+    this.setState({ 
+      interviews:interviews
+     });
+    
+  };
   componentDidMount() {
     let usersObject = {},
       interviewsObject = {};
@@ -88,6 +91,7 @@ class App extends React.Component {
               usersObject={this.state.usersObject}
               addNewInterview={this.addNewInterview}
               editInterview={this.editInterview}
+              deleteInterview={this.deleteInterview}
               current={this.state.current}
               onCurrentChange={this.onCurrentChange}
             />

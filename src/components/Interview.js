@@ -20,18 +20,27 @@ function Interview(props) {
           <span>
             {props.interview.date} {props.interview.startTime} - {props.interview.endTime}
           </span>
+         
           <button className="float-right" onClick={
             ()=>{props.editInterview(props.interview);
               
             }
           } >Edit</button>
+          <button className="float-right" onClick={
+            ()=>{props.deleteInterview(props.interview);
+              
+            }
+          } ><img alt="delete" src="https://cdn-icons-png.flaticon.com/128/3405/3405244.png" width="30px">
+          </img>
+          </button>
         </p>
         <p className="list-group-item px-0 py-0" style={{
-          margin:0,
+          
           display:"flex",
           flexDirection:"row",
           flexWrap:"nowrap",
-          justifyContent:"space-around"
+          justifyContent:"space-around",
+          
         }}>
            <div style={{
             margin:0,

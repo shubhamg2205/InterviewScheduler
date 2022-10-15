@@ -24,6 +24,7 @@ class Dashboard extends Component {
             interviews={this.props.interviews}
             usersObject={this.props.usersObject}
             editInterview={this.props.editInterview}
+            deleteInterview={this.props.deleteInterview}
           />
         ) : (
           <NewInterview
@@ -40,6 +41,7 @@ class Dashboard extends Component {
             {
               width:"auto",
               margin:"0 auto",
+              
             }
           }
         >
